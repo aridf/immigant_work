@@ -1,3 +1,6 @@
+# Don't push raw data
+/data/raw
+
 # History files
 .Rhistory
 .Rapp.history
