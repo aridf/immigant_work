@@ -1,5 +1,5 @@
 # Don't push raw data
-/data/raw
+/data
 
 # History files
 .Rhistory

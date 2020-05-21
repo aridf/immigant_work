@@ -7,30 +7,20 @@ setwd("C:/Users/Ari/Documents/Dissertation Data/UK-LFS-complete")
 ##some libraries
 library(foreign)
 library(ggplot2)
-library(plyr)
+library(tidyverse)
 library(aod)
 library(survey)
 library(tibble)
 library(mlogit)
 
-##reading in data
-lfs07 <- read.dta("lfs07.dta", convert.factors = FALSE)
-lfs08.11 <- read.dta("lfs08.11.dta", convert.factors = FALSE)
-lfs12 <- read.dta("lfs12.dta", convert.factors = FALSE)
-lfs13.16 <- read.dta("lfs13.16.dta", convert.factors = FALSE)
-
-##merging data
-lfs07 <- rename(lfs07, c("NATION" = "NATION", "SC2KMMJ" = "SC10MMJ"))
-lfs08.11 <- rename(lfs08.11, c("NTNLTY" = "NATION", "SC2KMMJ" = "SC10MMJ"))
-lfs12 <- rename(lfs12, c("NTNLTY12" = "NATION"))
-lfs13.16 <- rename(lfs13.16, c("NTNLTY12" = "NATION", "PIWT17" = "PIWT14", "PWT17" = "PWT14"))
-
-lfs <- rbind (lfs07, lfs08.11, lfs12, lfs13.16)
-write.dta(lfs, "C:/Users/Ari/Documents/Dissertation Data/UK-LFS-complete/lfs07.16.dta")
+# paths
+data_in_path = 'data'
+model_out_path = 'results/models'
+plot_out_path = 'results/plots'
 
 ##read in fresh data
 ##########################
-lfs <- read.dta("lfs07.16.dta", convert.factors = FALSE)
+lfs <- read_csv("lfs07.16.dta", convert.factors = FALSE)
 
 ##########################
 ## SETTING UP VARIABLES
