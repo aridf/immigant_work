@@ -228,7 +228,7 @@ count(lfs$MIGGRP)
 ##GDP per capita change over time
 ##########################
 
-naccounts <- read.csv("GDPgrowth.csv")
+naccounts <- read.csv("data/ref/GDPgrowth.csv")
 lfs <- merge(lfs, naccounts, by = "Y_Q", all = FALSE)
 
 ##turning QUARTER into factor
